@@ -94,49 +94,8 @@ void Counter() {
     Serial.println(wdistance);
 }
 
-void tof_init(){
-  pinMode(xSHUT1,OUTPUT);
-  pinMode(xSHUT2,OUTPUT);
-  pinMode(xSHUT3,OUTPUT);
-  pinMode(xSHUT4,OUTPUT);
-  pinMode(xSHUT5,OUTPUT);
-  pinMode(xSHUT6,OUTPUT);
-  pinMode(xSHUT7,OUTPUT);
-
-  digitalWrite(xSHUT1,LOW);
-  digitalWrite(xSHUT2,LOW);
-  digitalWrite(xSHUT3,LOW);
-  digitalWrite(xSHUT4,HIGH);
-  digitalWrite(xSHUT5,LOW);
-  digitalWrite(xSHUT6,LOW);
-  digitalWrite(xSHUT7,LOW);
-  delay(10);
-
-  Serial.begin(250000);
-//  while (! Serial) {
-//    delay(1);
-//  }
-
-  Serial.println("Time of Flight Sensors.");
-  if (!lox.begin()) {
-    Serial.println(F("Failed to boot VL53L0X"));
-    while(1);
-  }
-  Serial.println(F("VL53L0X API Continuous Ranging example\n\n"));
-  lox.startRangeContinuous();
-
-  }
 
 
-void tof_display(){
-  
-    if (lox.isRangeComplete()) {
 
-    distance = lox.readRange();
-    //Serial.print("Distance in mm: ");
-    //Serial.print(distance);
-    //SerialBT.print("Distance in mm: ");
-    //SerialBT.println(distance);
-       
-  }
-}
+
+

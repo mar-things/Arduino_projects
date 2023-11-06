@@ -27,7 +27,15 @@ VL53L0X Sensor5;
 VL53L0X Sensor6;
 VL53L0X Sensor7;
 
-void setup()
+// int laser_1;
+// int laser_2;
+// int laser_3;
+// int laser_4;
+// int laser_5;
+// int laser_6;
+// int laser_7;
+
+void tof_init()
 { /*WARNING*/
   //Shutdown pins of VL53L0X ACTIVE-LOW-ONLY NO TOLERANT TO 5V will fry them
   pinMode(XSHUT_pin1, OUTPUT);
@@ -90,8 +98,16 @@ void setup()
 
 }
 
-void loop()
+void tof_display()
 { 
+  laser_1 = Sensor1.readRangeContinuousMillimeters();
+  laser_2 = Sensor2.readRangeContinuousMillimeters();
+  laser_3 = Sensor3.readRangeContinuousMillimeters();
+  laser_4 = Sensor4.readRangeContinuousMillimeters();
+  laser_5 = Sensor5.readRangeContinuousMillimeters();
+  laser_6 = Sensor6.readRangeContinuousMillimeters();
+  laser_7 = Sensor7.readRangeContinuousMillimeters();
+  
   Serial.print(" Sensor 1: ");
   Serial.print(Sensor1.readRangeContinuousMillimeters());
   Serial.print(',');
@@ -112,7 +128,9 @@ void loop()
   Serial.print(',');
   Serial.print(" Sensor 7: ");
   Serial.print(Sensor7.readRangeContinuousMillimeters());
-
   Serial.println();
+
+
+
   
 }
