@@ -2,7 +2,7 @@
 Servo myservo;
 
 int pot;
-int servo = 3;
+Servo myservo;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -18,5 +18,5 @@ void loop() {
 
   delay(10);
   int val = map(pot,0,1023,0,255);
-  myservo.write(0);
+  myservo.write(val);
 }
