@@ -1,3 +1,4 @@
+#include "tof.h"
 #include <Wire.h>
 #include <VL53L0X.h>
 
@@ -27,16 +28,15 @@ VL53L0X Sensor5;
 VL53L0X Sensor6;
 VL53L0X Sensor7;
 
-// int laser_1;
-// int laser_2;
-// int laser_3;
-// int laser_4;
-// int laser_5;
-// int laser_6;
-// int laser_7;
+int laser_1;
+int laser_2;
+int laser_3;
+int laser_4;
+int laser_5;
+int laser_6;
+int laser_7;
 
-void tof_init()
-{ /*WARNING*/
+void tof_init(){ /*WARNING*/
   //Shutdown pins of VL53L0X ACTIVE-LOW-ONLY NO TOLERANT TO 5V will fry them
   pinMode(XSHUT_pin1, OUTPUT);
   pinMode(XSHUT_pin2, OUTPUT);
@@ -98,8 +98,8 @@ void tof_init()
 
 }
 
-void tof_display()
-{ 
+void tof_display(){ 
+  
   laser_1 = Sensor1.readRangeContinuousMillimeters();
   laser_2 = Sensor2.readRangeContinuousMillimeters();
   laser_3 = Sensor3.readRangeContinuousMillimeters();
@@ -108,25 +108,25 @@ void tof_display()
   laser_6 = Sensor6.readRangeContinuousMillimeters();
   laser_7 = Sensor7.readRangeContinuousMillimeters();
   
-  Serial.print(" Sensor 1: ");
+  //Serial.print(" Sensor 1: ");
   Serial.print(Sensor1.readRangeContinuousMillimeters());
   Serial.print(',');
-  Serial.print(" Sensor 2: ");
+  //Serial.print(" Sensor 2: ");
   Serial.print(Sensor2.readRangeContinuousMillimeters());
   Serial.print(',');
-  Serial.print(" Sensor 3: ");
+  //Serial.print(" Sensor 3: ");
   Serial.print(Sensor3.readRangeContinuousMillimeters());
   Serial.print(',');
-  Serial.print(" Sensor 4: ");
+  //Serial.print(" Sensor 4: ");
   Serial.print(Sensor4.readRangeContinuousMillimeters());
   Serial.print(',');
-  Serial.print(" Sensor 5: ");
+  //Serial.print(" Sensor 5: ");
   Serial.print(Sensor5.readRangeContinuousMillimeters());
   Serial.print(',');
-  Serial.print(" Sensor 6: ");
+  //Serial.print(" Sensor 6: ");
   Serial.print(Sensor6.readRangeContinuousMillimeters());
   Serial.print(',');
-  Serial.print(" Sensor 7: ");
+  //Serial.print(" Sensor 7: ");
   Serial.print(Sensor7.readRangeContinuousMillimeters());
   Serial.println();
 
